@@ -2,7 +2,7 @@ InfluxDB::Rails.configure do |config|
   ## The only setting you actually need to update is the name of the
   ## database within the InfluxDB server instance. Don't forget to
   ## create this database as well.
-  config.client.database = ENV.fetch('INFLUXDB_NAME') { 'rails_vue_influxdb_example_development' }
+  config.client.database = ENV.fetch('INFLUXDB_NAME') { 'NOAA_water_database' }
   config.client.hosts = ENV.fetch('INFLUXDB_HOST') { 'influxdb' }
   # config.client.port = 8086
 
