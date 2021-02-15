@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_USERNAME') { 'root' } %>
+  password: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_PASSWORD') { 'mysql' } %>
+  host: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_HOST_NAME') { 'mysqldb' } %>
+
+development:
+  <<: *default
+  database: rails_vue_influxdb_example_development
+
+test:
+  <<: *default
+  database: rails_vue_influxdb_example_test
+
+production:
+  <<: *default
+  database: rails_vue_influxdb_example_production
+  username: rails_vue_influxdb_example
+  password: <%= ENV['RAILS_VUE_INFLUXDB_EXAMPLE_DATABASE_PASSWORD'] %>
