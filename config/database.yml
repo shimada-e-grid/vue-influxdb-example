@@ -2,9 +2,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_USERNAME') { 'root' } %>
-  password: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_PASSWORD') { 'mysql' } %>
-  host: <%= ENV.fetch('RAILS_VUE_INFLUXDB_EXAMPLE_HOST_NAME') { 'mysqldb' } %>
+  username: <%= ENV.fetch('MYSQL_USERNAME') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'mysql' } %>
+  host: <%= ENV.fetch('MYSQL_HOST') { 'mysqldb' } %>
 
 development:
   <<: *default

@@ -6,6 +6,8 @@ services:
       INFLUXDB_DB: rails_vue_influxdb_example_development
       INFLUXDB_ADMIN_USER: root
       INFLUXDB_ADMIN_PASSWORD: root
+    volumes:
+      - ./db/influxdb:/docker-entrypoint-initdb.d
     ports:
       - "8086:8086"
   mysqldb:
