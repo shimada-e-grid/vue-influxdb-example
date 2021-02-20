@@ -5,17 +5,14 @@ default: &default
   username: <%= ENV.fetch('MYSQL_USERNAME') { 'root' } %>
   password: <%= ENV.fetch('MYSQL_PASSWORD') { 'mysql' } %>
   host: <%= ENV.fetch('MYSQL_HOST') { 'mysqldb' } %>
-
 development:
   <<: *default
   database: rails_vue_influxdb_example_development
-
 test:
   <<: *default
   database: rails_vue_influxdb_example_test
-
 production:
   <<: *default
   database: rails_vue_influxdb_example_production
   username: rails_vue_influxdb_example
-  password: <%= ENV['RAILS_VUE_INFLUXDB_EXAMPLE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>

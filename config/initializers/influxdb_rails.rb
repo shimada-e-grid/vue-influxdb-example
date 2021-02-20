@@ -2,14 +2,18 @@ InfluxDB::Rails.configure do |config|
   ## The only setting you actually need to update is the name of the
   ## database within the InfluxDB server instance. Don't forget to
   ## create this database as well.
-  config.client.database = ENV.fetch('INFLUXDB_NAME') { 'NOAA_water_database' }
-  config.client.hosts = ENV.fetch('INFLUXDB_HOST') { 'influxdb' }
+  config.client.database = 'NOAA_water_database'
+  config.client.hosts = ['influxdb']
   # config.client.port = 8086
 
   ## If you've setup user authentication (and activated it in the server
   ## config), you need to configure the credentials here.
-  config.client.username = ENV.fetch('INFLUXDB_USERNAME') { 'root' }
-  config.client.password = ENV.fetch('INFLUXDB_PASSWORD') { 'root' }
+  # config.client.username = "root"
+  # config.client.password = "root"
+
+  ## If your InfluxDB service requires an HTTPS connection then you can
+  ## enable it here.
+  # config.client.use_ssl = true
 
   ## Various other client and connection options. These are used to create
   ## an `InfluxDB::Client` instance (i.e. `InfluxDB::Rails.client`).
