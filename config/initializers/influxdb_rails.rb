@@ -34,7 +34,18 @@ InfluxDB::Rails.configure do |config|
   # config.measurement_name = "rails"
 
   ## Disable rails framework hooks.
-  # config.ignored_hooks = ['sql.active_record', 'render_template.action_view']
+  config.ignored_hooks = [
+    'start_processing.action_controller',
+    'process_action.action_controller',
+    'render_template.action_view',
+    'render_partial.action_view',
+    'render_collection.action_view',
+    'sql.active_record',
+    'instantiation.active_record',
+    'enqueue.active_job',
+    'perform.active_job',
+    'deliver.action_mailer'
+  ]
 
   # Modify tags on the fly.
   # config.tags_middleware = ->(tags) { tags }
